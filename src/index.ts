@@ -3,9 +3,10 @@ import dotenv from 'dotenv';
 import express, { json, Request, Response, urlencoded } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import { postRouter } from './routes/posts';
+import { postsRouter } from './routes/posts';
 import { commentsRouter } from './routes/comments';
 import { usersRouter } from './routes/users';
+import { reactionsRouter } from './routes/reactions';
 import AppDataSource from './data-source'
 dotenv.config()
 
@@ -21,9 +22,10 @@ app.get('/', function (req:Request,res:Response) {
     res.send('Hello World' )
 
 })
-app.use('/posts', postRouter)
+app.use('/posts', postsRouter)
 app.use('/comments', commentsRouter)
 app.use('/user',usersRouter)
+app.use('/reaction',reactionsRouter)
 
 app.listen(process.env.PORT, async () => {
     
