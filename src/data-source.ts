@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { Comment } from './entities/comment';
 import {Post} from './entities/post'
+import { Reaction } from './entities/reaction';
 import { Tag } from './entities/tag';
 import { User } from './entities/user';
 config();
@@ -15,7 +16,7 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME,
   synchronize: true,
   logging: false,
-  entities: [Post,User,Tag, Comment],
+  entities: [Post,User,Tag, Comment, Reaction],
   migrations: ['migration/*.ts'],
   subscribers: []
 });

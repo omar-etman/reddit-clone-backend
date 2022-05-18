@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 })
 
 //create a comment
-router.post('/:postId/:authorId', async (req, res) => {
+router.post('/create/:postId/:authorId', async (req, res) => {
     const {authorId, postId} = req.params
     const post = await Post.findOneBy({id: +postId})
     const author = await User.findOneBy({id: +authorId})
@@ -37,7 +37,7 @@ router.post('/:postId/:authorId', async (req, res) => {
 //delete a comment
 
 //edit a comment
-router.put("/editComment/:commentId", async (req, res) => {
+router.put("/edit/:commentId", async (req, res) => {
     const {commentId} = req.params
     const {body} = req.body
     // const comment = await Comment.findOneBy({id:+commentId})

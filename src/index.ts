@@ -24,8 +24,8 @@ app.get('/', function (req:Request,res:Response) {
 })
 app.use('/posts', postsRouter)
 app.use('/comments', commentsRouter)
-app.use('/user',usersRouter)
-app.use('/reaction',reactionsRouter)
+app.use('/users',usersRouter)
+app.use('/reactions',reactionsRouter)
 
 app.listen(process.env.PORT, async () => {
     
